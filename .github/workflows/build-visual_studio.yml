@@ -55,7 +55,7 @@ jobs:
           $ProgressPreference = 'SilentlyContinue'
           Invoke-WebRequest -UseBasicParsing -Uri "https://download.firedaemon.com/FireDaemon-OpenSSL/openssl-1.1.1w.zip" -OutFile ".\openssl-1.1.1w.zip"
           Expand-Archive -LiteralPath "openssl-1.1.1w.zip" -DestinationPath "."
-          Rename-Item "openssl-1.1.1w" "openssl"
+          Rename-Item "openssl-1.1" "openssl"
           Write-Output "${{ github.workspace }}\openssl" | Out-File -FilePath $Env:GITHUB_PATH -Encoding utf8 -Append
 
       - name: Setup SDL2
