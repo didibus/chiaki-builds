@@ -54,8 +54,7 @@ jobs:
         run: |
           $ProgressPreference = 'SilentlyContinue'
           Invoke-WebRequest -UseBasicParsing -Uri "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1p.tar.gz" -OutFile ".\openssl-1.1.1p.tar.gz"
-          Expand-Archive -LiteralPath "openssl-1.1.1p.tar.gz" -DestinationPath "."
-          Expand-Archive -LiteralPath "openssl-1.1.1p.tar" -DestinationPath "."
+          tar -xvzf .\openssl-1.1.1p.tar.gz
           Rename-Item "openssl-1.1.1p" "openssl"
           Write-Output "${{ github.workspace }}\openssl" | Out-File -FilePath $Env:GITHUB_PATH -Encoding utf8 -Append
 
